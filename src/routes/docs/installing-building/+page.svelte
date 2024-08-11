@@ -25,8 +25,11 @@
       <p class="text-lg mb-6">
         Firstly, you can install via cargo with <code class="text-pink-500"
           >cargo install volaris-cli</code
-        >, or you may download a binary from the release page (make sure you
-        mark it as executable, otherwise it won't run!).
+        >, or you may download a binary from the
+        <a
+          href="https://github.com/volar-is/volaris/releases/latest"
+          class="text-pink-500">release</a
+        > page (make sure you mark it as executable, otherwise it won't run!).
       </p>
     </section>
 
@@ -61,8 +64,8 @@
         issue.
       </p>
       <p class="text-lg mb-6">
-        Volaris was tested on Android 14, with Termux v0.129, but it should
-        work on a wide range of devices.
+        Volaris was tested on Android 14, with Termux v0.129, but it should work
+        on a wide range of devices.
       </p>
       <p class="text-lg mb-6">
         To install, ensure you have cargo installed. You may install Volaris
