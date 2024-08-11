@@ -10,6 +10,7 @@ The Volaris Documentation site provides users with detailed information about th
 
 - `src/routes/`: Main homepage of the documentation.
 - `src/lib/global.css`: Global CSS styles.
+- `src/lib/style404.css`: 404 Page's CSS styles.
 - `src/routes/getting-started/`: Guide for getting started with Volaris.
 - `src/routes/guides/`: Detailed guides on using Volaris.
 - `src/routes/faq/`: Frequently asked questions.
