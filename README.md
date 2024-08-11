@@ -1,38 +1,61 @@
-# create-svelte
+# Volaris Documentation Site
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+Welcome to the Volaris Documentation site! This repository contains the code for the official documentation of the Volaris encryption tool, built with SvelteKit and styled using Tailwind CSS.
 
-## Creating a project
+## Project Overview
 
-If you're seeing this, you've probably already done this step. Congrats!
+The Volaris Documentation site provides users with detailed information about the Volaris encryption tool, including guides, FAQs, and getting started instructions. The site is designed to be minimalist and responsive, featuring smooth animations and a clean layout.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## File Structure
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+- `src/routes/`: Main homepage of the documentation.
+- `src/lib/global.css`: Global CSS styles.
+- `src/routes/getting-started/`: Guide for getting started with Volaris.
+- `src/routes/guides/`: Detailed guides on using Volaris.
+- `src/routes/faq/`: Frequently asked questions.
 
-## Developing
+## Getting Started
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+To set up and run the project locally, follow these steps:
 
-```bash
-npm run dev
+1. **Clone the Repository**
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+    ```sh
+    git clone https://github.com/volar-is/volaris-docs.git
+    cd volaris-docs
+    ```
 
-## Building
+2. **Install Dependencies**
 
-To create a production version of your app:
+    ```sh
+    pnpm install
+    ```
 
-```bash
-npm run build
-```
+3. **Start the Development Server**
 
-You can preview the production build with `npm run preview`.
+    ```sh
+    pnpm run dev
+    ```
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+   The local development server will be available at `http://localhost:5173`.
+
+## Contributing
+
+We welcome contributions from the community. To contribute:
+
+1. Fork the repository.
+2. Create a new branch:
+   `git checkout -b feature/YourFeature`
+3. Make your changes and commit them:
+   `git commit -m "feat: Add your feature"`
+4. Push to the branch:
+   `git push origin feature/YourFeature`
+5. Open a pull request.
+
+Please ensure your code adheres to our coding standards and includes appropriate tests.
+
+**Note:** This repository uses conventional commits. Please follow the [conventional commits guidelines](https://www.conventionalcommits.org/en/v1.0.0/) for your commit messages.
+
+## License
+
+This project is licensed under the BSD 2-Clause License. See the [LICENSE](LICENSE) file for details.
