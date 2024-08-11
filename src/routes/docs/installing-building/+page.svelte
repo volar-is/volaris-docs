@@ -61,7 +61,7 @@
         issue.
       </p>
       <p class="text-lg mb-6">
-        Volaris was tested on Android 12, with Termux v0.118.0, but it should
+        Volaris was tested on Android 14, with Termux v0.129, but it should
         work on a wide range of devices.
       </p>
       <p class="text-lg mb-6">
