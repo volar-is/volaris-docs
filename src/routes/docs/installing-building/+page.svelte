@@ -100,13 +100,13 @@
 
   <div class="flex justify-between items-center mt-12">
     <a
-      href="/introduction"
+      href="/docs/introduction"
       class="bg-pink-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-pink-500 transition duration-300"
     >
       Previous
     </a>
     <a
-      href="/choosing-key"
+      href="/docs/choosing-key"
       class="bg-pink-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-pink-500 transition duration-300"
     >
       Next
