@@ -21,9 +21,9 @@
       class="text-base sm:text-lg text-white mb-8 sm:mb-12"
       transition:fade={{ duration: 250 }}
     >
-      Discover how to use Volaris, your comprehensive encryption solution. Our
+      Discover how to use Volaris, your user friendly encryption solution. Our
       documentation provides detailed guides, FAQs, and resources to help you
-      get started and make the most of our powerful tools.
+      get started and make the most of volaris.
     </p>
     <div class="flex flex-wrap justify-center gap-4 mb-12">
       <a
