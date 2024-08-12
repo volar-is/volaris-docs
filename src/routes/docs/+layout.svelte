@@ -1,13 +1,17 @@
 <script>
-  import { fade } from "svelte/transition";
+  let sidebarOpen = false;
   let technicalDetailsOpen = false;
-  let volarisCoreOpen = false;
+  let volarisCryptoOpen = false;
+
+  function toggleSidebar() {
+    sidebarOpen = !sidebarOpen;
+  }
 
   function toggleDropdown(dropdown) {
     if (dropdown === "technicalDetails") {
       technicalDetailsOpen = !technicalDetailsOpen;
-    } else if (dropdown === "volarisCore") {
-      volarisCoreOpen = !volarisCoreOpen;
+    } else if (dropdown === "volarisCrypto") {
+      volarisCryptoOpen = !volarisCryptoOpen;
     }
   }
 </script>
@@ -18,180 +22,219 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </svelte:head>
 
-<div class="flex flex-col md:flex-row min-h-screen bg-gray-900">
-  <aside class="w-full md:w-64 bg-gray-800 text-white flex-shrink-0">
-    <div class="p-4 md:p-6">
-      <h2
-        class="text-2xl md:text-3xl font-bold mb-6 text-pink-500 text-center md:text-left"
-      >
-        Volaris Docs
-      </h2>
-      <nav class="space-y-3">
+<div class="flex flex-col md:flex-row min-h-screen bg-gray-900 text-white">
+  <!-- Sidebar Toggle Button for Mobile -->
+  <button
+    class="md:hidden fixed top-4 left-4 z-50 p-2 bg-gray-800 text-white rounded-full shadow-lg"
+    on:click={toggleSidebar}
+    aria-label="Toggle Sidebar"
+  >
+    <span class="material-icons">menu</span>
+  </button>
+
+  <!-- Sidebar -->
+  <aside
+    class={`fixed top-0 left-0 w-72 shadow-lg flex-shrink-0 transition-transform duration-300 border-r border-gray-700 bg-gray-800 md:static md:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}
+  >
+    <div class="p-6">
+      <a href="/">
+        <h2
+          class="items-center py-3 px-4 rounded-lg text-4xl font-bold mb-8 text-white text-center md:text-left"
+        >
+          <span class="block text-pink-400">Volaris</span>Docs
+        </h2>
+      </a>
+      <nav class="space-y-2">
         <a
           href="/docs/introduction"
-          class="block hover:text-pink-400 transition duration-200"
-          >1. Introduction</a
+          class="flex items-center py-3 px-4 rounded-lg hover:bg-purple-600 hover:bg-opacity-20 transition-colors duration-300"
         >
+          <span class="material-icons text-lg mr-3">home</span>
+          <span>Introduction</span>
+        </a>
         <a
           href="/docs/installing-building"
-          class="block hover:text-pink-400 transition duration-200"
-          >2. Installing and Building</a
+          class="flex items-center py-3 px-4 rounded-lg hover:bg-purple-600 hover:bg-opacity-20 transition-colors duration-300"
         >
+          <span class="material-icons text-lg mr-3">build</span>
+          <span>Installing and Building</span>
+        </a>
         <a
           href="/docs/choosing-key"
-          class="block hover:text-pink-400 transition duration-200"
-          >3. Choosing a Key</a
+          class="flex items-center py-3 px-4 rounded-lg hover:bg-purple-600 hover:bg-opacity-20 transition-colors duration-300"
         >
+          <span class="material-icons text-lg mr-3">vpn_key</span>
+          <span>Choosing a Key</span>
+        </a>
         <a
           href="/docs/checksums"
-          class="block hover:text-pink-400 transition duration-200"
-          >4. Checksums</a
+          class="flex items-center py-3 px-4 rounded-lg hover:bg-purple-600 hover:bg-opacity-20 transition-colors duration-300"
         >
+          <span class="material-icons text-lg mr-3">check_circle</span>
+          <span>Checksums</span>
+        </a>
         <a
           href="/docs/environment-variables"
-          class="block hover:text-pink-400 transition duration-200"
-          >5. Environment Variables</a
+          class="flex items-center py-3 px-4 rounded-lg hover:bg-purple-600 hover:bg-opacity-20 transition-colors duration-300"
         >
+          <span class="material-icons text-lg mr-3">settings</span>
+          <span>Environment Variables</span>
+        </a>
         <a
           href="/docs/usage-examples"
-          class="block hover:text-pink-400 transition duration-200"
-          >6. Usage Examples</a
+          class="flex items-center py-3 px-4 rounded-lg hover:bg-purple-600 hover:bg-opacity-20 transition-colors duration-300"
         >
+          <span class="material-icons text-lg mr-3">code</span>
+          <span>Usage Examples</span>
+        </a>
 
-        <div>
-          <div class="w-full md:w-64 bg-gray-800 text-white flex-shrink-0">
-            <a
-              href="/docs/technical-details"
-              class="block hover:text-pink-400 transition duration-200"
-              >7. Technical Details</a
-            >
-            <button
-              class="focus:outline-none hover:text-pink-400 transition duration-200"
-              on:click={() => toggleDropdown("technicalDetails")}
-            >
-              <span>{technicalDetailsOpen ? "▲" : "▼"}</span>
-            </button>
+        <!-- Technical Details Dropdown -->
+        <div class="relative">
+          <div
+            class="flex items-center justify-between py-3 px-4 rounded-lg hover:bg-purple-600 hover:bg-opacity-20 transition-colors duration-300 cursor-pointer"
+            on:click={() => toggleDropdown("technicalDetails")}
+          >
+            <div class="flex items-center">
+              <span class="material-icons text-lg mr-3">description</span>
+              <span>Technical Details</span>
+            </div>
+            <span class="material-icons text-lg">{technicalDetailsOpen ? "expand_less" : "expand_more"}</span>
           </div>
           <div
-            class={`mt-2 space-y-2 ${technicalDetailsOpen ? "block" : "hidden"}`}
+            class={`mt-2 space-y-2 pl-8 ${technicalDetailsOpen ? "block" : "hidden"}`}
           >
             <a
               href="/docs/technical-details/keys"
-              class="block py-1 pl-6 hover:bg-gray-700 rounded transition duration-200"
-              >7.1. Keys</a
+              class="block py-2 px-4 rounded-lg hover:bg-purple-700 hover:bg-opacity-20 transition-colors duration-300"
             >
+              Keys
+            </a>
             <a
               href="/docs/technical-details/secure-erase"
-              class="block py-1 pl-6 hover:bg-gray-700 rounded transition duration-200"
-              >7.2. Secure Erase</a
+              class="block py-2 px-4 rounded-lg hover:bg-purple-700 hover:bg-opacity-20 transition-colors duration-300"
             >
+              Secure Erase
+            </a>
             <a
               href="/docs/technical-details/directory-packing"
-              class="block py-1 pl-6 hover:bg-gray-700 rounded transition duration-200"
-              >7.3. Directory Packing</a
+              class="block py-2 px-4 rounded-lg hover:bg-purple-700 hover:bg-opacity-20 transition-colors duration-300"
             >
+              Directory Packing
+            </a>
             <a
               href="/docs/technical-details/performance-notes"
-              class="block py-1 pl-6 hover:bg-gray-700 rounded transition duration-200"
-              >7.4. Performance Notes</a
+              class="block py-2 px-4 rounded-lg hover:bg-purple-700 hover:bg-opacity-20 transition-colors duration-300"
             >
+              Performance Notes
+            </a>
           </div>
         </div>
 
-        <div>
-          <div class="w-full md:w-64 bg-gray-800 text-white flex-shrink-0">
-            <a
-              href="/docs/volaris-core"
-              class="block hover:text-pink-400 transition duration-200"
-              >8. Volaris-Core</a
-            >
-            <button
-              class="focus:outline-none hover:text-pink-400 transition duration-200"
-              on:click={() => toggleDropdown("volarisCore")}
-            >
-              <span>{volarisCoreOpen ? "▲" : "▼"}</span>
-            </button>
+        <!-- Volaris-Crypto Dropdown -->
+        <div class="relative">
+          <div
+            class="flex items-center justify-between py-3 px-4 rounded-lg hover:bg-purple-600 hover:bg-opacity-20 transition-colors duration-300 cursor-pointer"
+            on:click={() => toggleDropdown("volarisCrypto")}
+          >
+            <div class="flex items-center">
+              <span class="material-icons text-lg mr-3">layers</span>
+              <span>Volaris-Crypto</span>
+            </div>
+            <span class="material-icons text-lg">{volarisCryptoOpen ? "expand_less" : "expand_more"}</span>
           </div>
-          <div class={`mt-2 space-y-2 ${volarisCoreOpen ? "block" : "hidden"}`}>
+          <div
+            class={`mt-2 space-y-2 pl-8 ${volarisCryptoOpen ? "block" : "hidden"}`}
+          >
             <a
-              href="/docs/volaris-core/headers"
-              class="block py-1 pl-6 hover:bg-gray-700 rounded transition duration-200"
-              >8.1. Headers</a
+              href="/docs/volaris-crypto/"
+              class="block py-2 px-4 rounded-lg hover:bg-purple-700 hover:bg-opacity-20 transition-colors duration-300"
             >
+              About Volaris-Crypto
+            </a>
             <a
-              href="/docs/volaris-core/password-hashing"
-              class="block py-1 pl-6 hover:bg-gray-700 rounded transition duration-200"
-              >8.2. Password Hashing</a
+              href="/docs/volaris-crypto/headers"
+              class="block py-2 px-4 rounded-lg hover:bg-purple-700 hover:bg-opacity-20 transition-colors duration-300"
             >
+              Headers
+            </a>
             <a
-              href="/docs/volaris-core/encryption"
-              class="block py-1 pl-6 hover:bg-gray-700 rounded transition duration-200"
-              >8.3. Encryption</a
+              href="/docs/volaris-crypto/password-hashing"
+              class="block py-2 px-4 rounded-lg hover:bg-purple-700 hover:bg-opacity-20 transition-colors duration-300"
             >
+              Password Hashing
+            </a>
             <a
-              href="/docs/volaris-core/protected-wrapper"
-              class="block py-1 pl-6 hover:bg-gray-700 rounded transition duration-200"
-              >8.4. Protected Wrapper</a
+              href="/docs/volaris-crypto/encryption"
+              class="block py-2 px-4 rounded-lg hover:bg-purple-700 hover:bg-opacity-20 transition-colors duration-300"
             >
+              Encryption
+            </a>
             <a
-              href="/docs/volaris-core/api-documentation"
-              class="block py-1 pl-6 hover:bg-gray-700 rounded transition duration-200"
-              >8.5. API Documentation</a
+              href="/docs/volaris-crypto/protected-wrapper"
+              class="block py-2 px-4 rounded-lg hover:bg-purple-700 hover:bg-opacity-20 transition-colors duration-300"
             >
+              Protected Wrapper
+            </a>
             <a
-              href="/docs/volaris-core/auditing"
-              class="block py-1 pl-6 hover:bg-gray-700 rounded transition duration-200"
-              >8.6. Auditing</a
+              href="/docs/volaris-crypto/api-documentation"
+              class="block py-2 px-4 rounded-lg hover:bg-purple-700 hover:bg-opacity-20 transition-colors duration-300"
             >
+              API Documentation
+            </a>
+            <a
+              href="/docs/volaris-crypto/auditing"
+              class="block py-2 px-4 rounded-lg hover:bg-purple-700 hover:bg-opacity-20 transition-colors duration-300"
+            >
+              Auditing
+            </a>
           </div>
         </div>
 
         <a
           href="/docs/volaris-tools"
-          class="block hover:text-pink-400 transition duration-200"
-          >9. Volaris-Tools</a
+          class="flex items-center py-3 px-4 rounded-lg hover:bg-purple-600 hover:bg-opacity-20 transition-colors duration-300"
         >
+          <span class="material-icons text-lg mr-3">build_circle</span>
+          <span>Volaris-Tools</span>
+        </a>
         <a
           href="/docs/security-policy"
-          class="block hover:text-pink-400 transition duration-200"
-          >10. Security Policy</a
+          class="flex items-center py-3 px-4 rounded-lg hover:bg-purple-600 hover:bg-opacity-20 transition-colors duration-300"
         >
+          <span class="material-icons text-lg mr-3">security</span>
+          <span>Security Policy</span>
+        </a>
         <a
           href="/docs/supporting-volaris"
-          class="block hover:text-pink-400 transition duration-200"
-          >11. Supporting Volaris</a
+          class="flex items-center py-3 px-4 rounded-lg hover:bg-purple-600 hover:bg-opacity-20 transition-colors duration-300"
         >
+          <span class="material-icons text-lg mr-3">favorite</span>
+          <span>Supporting Volaris</span>
+        </a>
       </nav>
     </div>
   </aside>
 
-  <main class="flex-grow bg-gray-900 text-white p-4 md:p-8">
+  <!-- Main Content -->
+  <main class={`flex-grow bg-gray-900 text-gray-100 p-8 overflow-y-auto ${sidebarOpen ? 'md:ml-72' : 'md:ml-0'}`}>
     <div class="content">
       <slot></slot>
     </div>
   </main>
 </div>
 
-<style>
+<style global>
+  @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
   @media (max-width: 768px) {
-    .block {
-      display: block;
-      text-align: left;
+    .fixed {
+      position: fixed;
     }
-    .hidden {
-      display: none;
+    .translate-x-0 {
+      transform: translateX(0);
     }
-    .flex {
-      flex-direction: column;
-    }
-    .p-4 {
-      padding: 1rem;
-    }
-    .w-full {
-      width: 100%;
-    }
-    .pl-6 {
-      padding-left: 1.5rem; 
+    .-translate-x-full {
+      transform: translateX(-100%);
     }
   }
 </style>
