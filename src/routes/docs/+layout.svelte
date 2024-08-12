@@ -23,7 +23,6 @@
 </svelte:head>
 
 <div class="flex flex-col md:flex-row min-h-screen bg-gray-900 text-white">
-  <!-- Sidebar Toggle Button for Mobile -->
   <button
     class="md:hidden fixed top-4 left-4 z-50 p-2 bg-gray-800 text-white rounded-full shadow-lg"
     on:click={toggleSidebar}
@@ -32,7 +31,6 @@
     <span class="material-icons">menu</span>
   </button>
 
-  <!-- Sidebar -->
   <aside
     class={`fixed top-0 left-0 w-72 shadow-lg flex-shrink-0 transition-transform duration-300 border-r border-gray-700 bg-gray-800 md:static md:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}
   >
@@ -88,7 +86,6 @@
           <span>Usage Examples</span>
         </a>
 
-        <!-- Technical Details Dropdown -->
         <div class="relative">
           <div
             class="flex items-center justify-between py-3 px-4 rounded-lg hover:bg-purple-600 hover:bg-opacity-20 transition-colors duration-300 cursor-pointer"
@@ -130,7 +127,6 @@
           </div>
         </div>
 
-        <!-- Volaris-Crypto Dropdown -->
         <div class="relative">
           <div
             class="flex items-center justify-between py-3 px-4 rounded-lg hover:bg-purple-600 hover:bg-opacity-20 transition-colors duration-300 cursor-pointer"
@@ -214,8 +210,7 @@
       </nav>
     </div>
   </aside>
-
-  <!-- Main Content -->
+  
   <main class={`flex-grow bg-gray-900 text-gray-100 p-8 overflow-y-auto ${sidebarOpen ? 'md:ml-72' : 'md:ml-0'}`}>
     <div class="content">
       <slot></slot>
