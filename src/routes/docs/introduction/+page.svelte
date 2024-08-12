@@ -150,7 +150,7 @@
             <td class="border px-4 py-2">Yes</td>
           </tr>
           <tr class="bg-gray-700">
-            <td class="border px-4 py-2">Android 12</td>
+            <td class="border px-4 py-2">Android 14</td>
             <td class="border px-4 py-2">Yes</td>
           </tr>
           <tr class="bg-gray-800">
@@ -196,7 +196,7 @@
   <div class="flex justify-between items-center mt-12">
     <div></div>
     <a
-      href="/next-page"
+      href="/docs/installing-building"
       class="bg-pink-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-pink-500 transition duration-300"
     >
       Next
