@@ -2,6 +2,7 @@
   let sidebarOpen = false;
   let technicalDetailsOpen = false;
   let volarisCryptoOpen = false;
+  let aboutUsOpen = false;
 
   function toggleSidebar() {
     sidebarOpen = !sidebarOpen;
@@ -12,6 +13,8 @@
       technicalDetailsOpen = !technicalDetailsOpen;
     } else if (dropdown === "volarisCrypto") {
       volarisCryptoOpen = !volarisCryptoOpen;
+    } else if (dropdown === "aboutUs") {
+      aboutUsOpen = !aboutUsOpen;
     }
   }
 </script>
@@ -43,13 +46,49 @@
         </h2>
       </a>
       <nav class="space-y-2">
+        <div class="relative">
+          <div
+            class="flex items-center justify-between py-3 px-4 rounded-lg hover:bg-purple-600 hover:bg-opacity-20 transition-colors duration-300 cursor-pointer"
+            on:click={() => toggleDropdown("aboutUs")}
+          >
+            <div class="flex items-center">
+              <span class="material-icons text-lg mr-3">info</span>
+              <span>About Us</span>
+            </div>
+            <span class="material-icons text-lg">{aboutUsOpen ? "expand_less" : "expand_more"}</span>
+          </div>
+          <div
+            class={`mt-2 space-y-2 pl-8 ${aboutUsOpen ? "block" : "hidden"}`}
+          >
+            <a
+              href="/docs/about-us/team"
+              class="block py-2 px-4 rounded-lg hover:bg-purple-700 hover:bg-opacity-20 transition-colors duration-300"
+            >
+              Team
+            </a>
+            <a
+              href="/docs/about-us/careers"
+              class="block py-2 px-4 rounded-lg hover:bg-purple-700 hover:bg-opacity-20 transition-colors duration-300"
+            >
+              Careers
+            </a>
+            <a
+              href="/docs/about-us/contact"
+              class="block py-2 px-4 rounded-lg hover:bg-purple-700 hover:bg-opacity-20 transition-colors duration-300"
+            >
+              Contact Us
+            </a>
+          </div>
+        </div>
+
         <a
-          href="/docs/introduction"
-          class="flex items-center py-3 px-4 rounded-lg hover:bg-purple-600 hover:bg-opacity-20 transition-colors duration-300"
-        >
-          <span class="material-icons text-lg mr-3">home</span>
-          <span>Introduction</span>
-        </a>
+            href="/docs/introduction"
+            class="flex items-center py-3 px-4 rounded-lg hover:bg-purple-600 hover:bg-opacity-20 transition-colors duration-300"
+          >
+            <span class="material-icons text-lg mr-3">home</span>
+            <span>Introduction</span>
+          </a>
+
         <a
           href="/docs/installing-building"
           class="flex items-center py-3 px-4 rounded-lg hover:bg-purple-600 hover:bg-opacity-20 transition-colors duration-300"
@@ -210,7 +249,7 @@
       </nav>
     </div>
   </aside>
-  
+
   <main class={`flex-grow bg-gray-900 text-gray-100 p-8 overflow-y-auto ${sidebarOpen ? 'md:ml-72' : 'md:ml-0'}`}>
     <div class="content">
       <slot></slot>

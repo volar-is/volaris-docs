@@ -98,65 +98,127 @@
 
     <section class="mb-12">
       <h2 class="text-3xl font-semibold mb-4">Tested Operating Systems</h2>
-      <table class="min-w-full text-lg mb-6">
-        <thead class="bg-pink-500 text-white">
-          <tr>
-            <th class="px-4 py-2">OS</th>
-            <th class="px-4 py-2">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="bg-gray-700">
-            <td class="border px-4 py-2">Void Linux</td>
-            <td class="border px-4 py-2">Yes</td>
-          </tr>
-          <tr class="bg-gray-800">
-            <td class="border px-4 py-2">Fedora 35</td>
-            <td class="border px-4 py-2">Yes</td>
-          </tr>
-          <tr class="bg-gray-700">
-            <td class="border px-4 py-2">Fedora 36</td>
-            <td class="border px-4 py-2">Yes</td>
-          </tr>
-          <tr class="bg-gray-800">
-            <td class="border px-4 py-2">Fedora 39</td>
-            <td class="border px-4 py-2">Yes</td>
-          </tr>
-          <tr class="bg-gray-700">
-            <td class="border px-4 py-2">Fedora 40</td>
-            <td class="border px-4 py-2">Yes</td>
-          </tr>
-          <tr class="bg-gray-800">
-            <td class="border px-4 py-2">Ubuntu 20.04</td>
-            <td class="border px-4 py-2">Yes</td>
-          </tr>
-          <tr class="bg-gray-700">
-            <td class="border px-4 py-2">FreeBSD 13</td>
-            <td class="border px-4 py-2">Yes</td>
-          </tr>
-          <tr class="bg-gray-800">
-            <td class="border px-4 py-2">FreeBSD 14</td>
-            <td class="border px-4 py-2">Yes</td>
-          </tr>
-          <tr class="bg-gray-700">
-            <td class="border px-4 py-2">Windows 10</td>
-            <td class="border px-4 py-2">Yes</td>
-          </tr>
-          <tr class="bg-gray-800">
-            <td class="border px-4 py-2">Windows 11</td>
-            <td class="border px-4 py-2">Yes</td>
-          </tr>
-          <tr class="bg-gray-700">
-            <td class="border px-4 py-2">Android 14</td>
-            <td class="border px-4 py-2">Yes</td>
-          </tr>
-          <tr class="bg-gray-800">
-            <td class="border px-4 py-2">MacOS</td>
-            <td class="border px-4 py-2">Yes</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="overflow-hidden rounded-lg shadow-lg border border-gray-700">
+        <table class="min-w-full text-lg">
+          <thead class="bg-gradient-to-r from-pink-500 to-purple-500 text-white">
+            <tr>
+              <th class="px-6 py-3 text-left">OS</th>
+              <th class="px-6 py-3 text-left">Notes</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-600">
+            <tr class="bg-gray-700 odd:bg-gray-800 hover:bg-gray-600 transition-colors duration-200 cursor-pointer" onclick="openModal('void-linux')">
+              <td class="px-6 py-4">Void Linux</td>
+              <td class="px-6 py-4">All known to be working</td>
+            </tr>
+            <tr class="bg-gray-800 odd:bg-gray-700 hover:bg-gray-600 transition-colors duration-200 cursor-pointer" onclick="openModal('fedora-35')">
+              <td class="px-6 py-4">Fedora 35</td>
+              <td class="px-6 py-4">Fedora 35 and up</td>
+            </tr>
+            <tr class="bg-gray-700 odd:bg-gray-800 hover:bg-gray-600 transition-colors duration-200 cursor-pointer" onclick="openModal('ubuntu-20.04')">
+              <td class="px-6 py-4">Ubuntu 20.04</td>
+              <td class="px-6 py-4">Ubuntu 20.04 and up</td>
+            </tr>
+            <tr class="bg-gray-800 odd:bg-gray-700 hover:bg-gray-600 transition-colors duration-200 cursor-pointer" onclick="openModal('freebsd-13')">
+              <td class="px-6 py-4">FreeBSD 13</td>
+              <td class="px-6 py-4">FreeBSD 13 and up</td>
+            </tr>
+            <tr class="bg-gray-700 odd:bg-gray-800 hover:bg-gray-600 transition-colors duration-200 cursor-pointer" onclick="openModal('windows-10')">
+              <td class="px-6 py-4">Windows 10</td>
+              <td class="px-6 py-4">Windows 10 and up</td>
+            </tr>
+            <tr class="bg-gray-800 odd:bg-gray-700 hover:bg-gray-600 transition-colors duration-200 cursor-pointer" onclick="openModal('android-12')">
+              <td class="px-6 py-4">Android 12</td>
+              <td class="px-6 py-4">Android 12 and up</td>
+            </tr>
+            <tr class="bg-gray-700 odd:bg-gray-800 hover:bg-gray-600 transition-colors duration-200 cursor-pointer" onclick="openModal('macos')">
+              <td class="px-6 py-4">MacOS</td>
+              <td class="px-6 py-4">Big Sur and up</td>
+            </tr>
+            <tr class="bg-gray-800 odd:bg-gray-700 hover:bg-gray-600 transition-colors duration-200 cursor-pointer" onclick="openModal('other')">
+              <td class="px-6 py-4">Other</td>
+              <td class="px-6 py-4">Above are all officially known to work, but other OS's may work.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
+
+    <div id="void-linux" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex justify-center items-center hidden">
+      <div class="bg-gray-800 rounded-lg shadow-lg p-8 text-white max-w-lg">
+        <h3 class="text-2xl font-semibold mb-4">Void Linux Compatibility</h3>
+        <p class="mb-4">Void Linux is fully supported with all known configurations working smoothly.</p>
+        <button class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-4 rounded-lg" onclick="closeModal('void-linux')">Close</button>
+      </div>
+    </div>
+    
+    <div id="fedora-35" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex justify-center items-center hidden">
+      <div class="bg-gray-800 rounded-lg shadow-lg p-8 text-white max-w-lg">
+        <h3 class="text-2xl font-semibold mb-4">Fedora 35 Compatibility</h3>
+        <p class="mb-4">Fedora 35 and all subsequent versions are officially supported.</p>
+        <button class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-4 rounded-lg" onclick="closeModal('fedora-35')">Close</button>
+      </div>
+    </div>
+    
+    <div id="ubuntu-20.04" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex justify-center items-center hidden">
+      <div class="bg-gray-800 rounded-lg shadow-lg p-8 text-white max-w-lg">
+        <h3 class="text-2xl font-semibold mb-4">Ubuntu 20.04 Compatibility</h3>
+        <p class="mb-4">Ubuntu 20.04 and later versions are supported with all known issues resolved.</p>
+        <button class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-4 rounded-lg" onclick="closeModal('ubuntu-20.04')">Close</button>
+      </div>
+    </div>
+    
+    <div id="freebsd-13" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex justify-center items-center hidden">
+      <div class="bg-gray-800 rounded-lg shadow-lg p-8 text-white max-w-lg">
+        <h3 class="text-2xl font-semibold mb-4">FreeBSD 13 Compatibility</h3>
+        <p class="mb-4">FreeBSD 13 and newer versions are officially supported.</p>
+        <button class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-4 rounded-lg" onclick="closeModal('freebsd-13')">Close</button>
+      </div>
+    </div>
+    
+    <div id="windows-10" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex justify-center items-center hidden">
+      <div class="bg-gray-800 rounded-lg shadow-lg p-8 text-white max-w-lg">
+        <h3 class="text-2xl font-semibold mb-4">Windows 10 Compatibility</h3>
+        <p class="mb-4">Windows 10 and up are fully supported with no known issues.</p>
+        <button class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-4 rounded-lg" onclick="closeModal('windows-10')">Close</button>
+      </div>
+    </div>
+    
+    <div id="android-12" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex justify-center items-center hidden">
+      <div class="bg-gray-800 rounded-lg shadow-lg p-8 text-white max-w-lg">
+        <h3 class="text-2xl font-semibold mb-4">Android 12 Compatibility</h3>
+        <p class="mb-4">Android 12 and later versions are supported, but performance may vary depending on device hardware. Due to the nature of android being a mobile OS, please follow the install instructions on <a href="/docs/installing-building#android" class="text-pink-400 font-bold hover:text-pink-300 transition-colors duration-200">the installing page.</a></p>
+        <button class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-4 rounded-lg" onclick="closeModal('android-12')">Close</button>
+      </div>
+    </div>
+    
+    <div id="macos" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex justify-center items-center hidden">
+      <div class="bg-gray-800 rounded-lg shadow-lg p-8 text-white max-w-lg">
+        <h3 class="text-2xl font-semibold mb-4">MacOS Compatibility</h3>
+        <p class="mb-4">MacOS Big Sur and later versions are fully supported.</p>
+        <button class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-4 rounded-lg" onclick="closeModal('macos')">Close</button>
+      </div>
+    </div>
+    
+    <div id="other" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex justify-center items-center hidden">
+      <div class="bg-gray-800 rounded-lg shadow-lg p-8 text-white max-w-lg">
+        <h3 class="text-2xl font-semibold mb-4">Other OS Compatibility</h3>
+        <p class="mb-4">While other OS's may work, only the ones listed are officially supported.</p>
+        <button class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-4 rounded-lg" onclick="closeModal('other')">Close</button>
+      </div>
+    </div>
+    
+    <script>
+      function openModal(id) {
+        document.getElementById(id).classList.remove('hidden');
+      }
+    
+      function closeModal(id) {
+        document.getElementById(id).classList.add('hidden');
+      }
+    </script>
+    
+    
 
     <section class="mb-12">
       <h2 class="text-3xl font-semibold mb-4">Privacy</h2>
